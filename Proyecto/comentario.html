@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>comentarios</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <body class="comentario">
+    <header class="barra-superior">
+        <div class="logo">
+            <img src="https://cbtis155.edu.mx/wp-content/uploads/2022/05/Imagotipo_DGETI_blanco.png" alt="Logo CBTIS">
+            <span class="nombre-cbtis">CBTis No.205</span>
+        </div>
+        <div class="icono-menu">
+            <a href="index.html" class="btn-menu">Inicio</a>
+        </div>
+    </header>
+      <style>
+        /* Estilo básico */
+        body {
+          font-family: Arial, sans-serif;
+          background: linear-gradient(to bottom right, #fdfdfd, #bec1c7);
+          margin: 0;
+          padding: 20px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+        }
+    
+        .container {
+          background: #fff;
+          padding: 20px;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          width: 100%;
+          max-width: 500px;
+        }
+    
+        h1 {
+          color: #333;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+    
+        .comment-form {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+    
+        .comment-form input, .comment-form textarea {
+          width: 100%;
+          padding: 10px;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          font-size: 16px;
+        }
+    
+        .comment-form textarea {
+          height: 80px;
+          resize: none;
+        }
+    
+        .comment-form button {
+          background: #007BFF;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-size: 16px;
+          transition: 0.3s;
+        }
+    
+        .comment-form button:hover {
+          background: #0056b3;
+        }
+    
+        .comments {
+          margin-top: 20px;
+        }
+    
+        .comment {
+          background: #f9f9f9;
+          padding: 15px;
+          border-radius: 5px;
+          margin-bottom: 10px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          animation: fadeIn 0.5s ease-in-out;
+        }
+    
+        .comment p {
+          margin: 0;
+          font-size: 16px;
+          color: #555;
+        }
+    
+        .comment .email {
+          font-size: 14px;
+          color: #777;
+          margin-top: 10px;
+        }
+    
+        /* Animación */
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Comentarios</h1>
+        <div class="comment-form">
+          <!-- Campo de correo electrónico -->
+          <input type="email" id="emailInput" placeholder="Ponga su email" required>
+          <!-- Campo de texto para el comentario -->
+          <textarea id="commentInput" placeholder="agregué su comentario..." required></textarea>
+          <!-- Botón para enviar el comentario -->
+          <button onclick="addComment()">subir comentario</button>
+        </div>
+        <div class="comments" id="commentsSection">
+          <!-- Los comentarios aparecerán aquí -->
+        </div>
+      </div>
+    
+      <script>
+        function addComment() {
+          const emailInput = document.getElementById('emailInput');
+          const commentInput = document.getElementById('commentInput');
+          const commentsSection = document.getElementById('commentsSection');
+    
+          const email = emailInput.value.trim();
+          const commentText = commentInput.value.trim();
+    
+          // Validar que el correo y el comentario no estén vacíos
+          if (email === '' || commentText === '') {
+            alert('Please enter both your email and a comment.');
+            return;
+          }
+    
+          // Validar que el correo electrónico tenga un formato válido
+          const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+          if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return;
+          }
+    
+          // Crear un contenedor para el comentario
+          const comment = document.createElement('div');
+          comment.className = 'comment';
+          comment.innerHTML = `
+            <p>${commentText}</p>
+            <div class="email">Posted by: ${email}</div>
+          `;
+    
+          // Agregar el comentario a la sección
+          commentsSection.appendChild(comment);
+    
+          // Limpiar los campos de entrada
+          emailInput.value = '';
+          commentInput.value = '';
+        }
+      </script>
+    </body>
+    </html>

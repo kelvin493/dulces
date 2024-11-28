@@ -1,0 +1,126 @@
+/* Estilo general */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+/* Barra superior */
+.barra-superior {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(42,42,42);
+  padding: 10px 20px;
+  color: white;
+}
+
+.barra-superior .btn-menu:hover {
+  background-color: #444;
+  transform: scale(1.1);
+}
+
+.barra-superior .btn-menu {
+  background-color: #2a2a2a;
+  color: white;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.barra-superior .logo {
+  display: flex;
+  align-items: center;
+}
+
+.barra-superior .logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.barra-superior nav a {
+  margin-left: 15px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.barra-superior nav a:hover {
+  color: #80cbc4;
+}
+
+/* Contenido principal */
+main {
+  text-align: center;
+  padding: 20px;
+}
+
+main h1 {
+  font-size: 24px;
+  color: rgb(42,42,42);
+  margin-bottom: 20px;
+}
+
+/* Grid de integrantes */
+.grid-integrantes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.integrante {
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+  width: 200px; /* Fijar un ancho consistente */
+}
+
+.integrante img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* Forma perfectamente redonda */
+  margin-bottom: 10px;
+  border: 3px solid rgb(42,42,42); /* Borde verde */
+  object-fit: cover;
+}
+
+.integrante p {
+  margin: 0;
+  font-weight: bold;
+  color: #333;
+}
+
+.dulces {
+  margin: 20px;
+}
+
+.dulce-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.dulce-item img {
+  width: 150px;
+  height: 150px;
+  margin-right: 15px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.dulce-item p {
+  margin: 0;
+}
+
